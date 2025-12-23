@@ -1,0 +1,829 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic");
+
+:root {
+  /* Background colors */
+  --bg-primary: #191919;
+  --bg-secondary: #2f2f2f;
+  --bg-ter: #3c3c3c;
+
+  --bg-light-primary: #f4f4f1;
+  --bg-secondary-primary: #e6dcecf7;
+
+  /* Field colors */
+  --bg-field-primary: #646464;
+  --bg-field-secondary: #84568c87;
+
+  /* Text Color  */
+  --text-primary: #f4f4f1;
+  --text-secondary: #dbdbdb;
+
+  --text-dark-primary: #191919;
+
+  /* Button background color */
+  --btn-primary: #9a27dc;
+  --btn-secondary: #a429ec;
+  --btn-ter-primary: #281a2c;
+  --btn-ter-secondary: #36253b;
+
+  --bg-primary-scroll: #dbdbdb;
+  --bg-secondary-scroll: #646464;
+
+  --text-primary-span: rgb(255, 102, 102);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+}
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+/* Main wrapper */
+#main {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+}
+
+.hederSection {
+  height: 55%;
+  width: 100%;
+  background-image: url(https://i.pinimg.com/736x/dc/eb/c6/dcebc6f131f8b8e76dc09507173e2991.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0px 20px 50px rgba(103, 103, 103, 0.273);
+  border-radius: 10px;
+  background-color: green;
+  padding: 15px;
+  margin-bottom: 30px;
+  /* filter: blur(2px); */
+}
+
+.imageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.246);
+  transition: all 0.7s ease;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.37);
+}
+
+.imageContainer:hover {
+  background-color: rgba(255, 255, 255, 0.334);
+  border: 2px solid rgba(255, 255, 255, 0.832);
+}
+
+.imageContainer .left .date {
+  font-size: 25px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .left .dayTime {
+  font-size: 65px;
+  letter-spacing: 2px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .left .location {
+  font-size: 25px;
+  letter-spacing: 2px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .right .temperature {
+  font-size: 50px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .right .typDay {
+  font-size: 30px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .right .humidity {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--text-dark-primary);
+}
+
+.imageContainer .right .wind {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--text-dark-primary);
+}
+
+/* Section containing cards */
+section.allElems {
+  height: 100%;
+  width: 100%;
+  /* padding: 40px; */
+  /* padding-top: 50px; space for fixed nav */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  position: relative;
+}
+
+/* Card */
+.elem {
+  height: 330px;
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Image */
+.elem img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: blur(1px);
+  transition: filter 0.3s ease;
+}
+
+/* Remove blur on card hover */
+.elem:hover img {
+  filter: blur(0);
+}
+
+/* Card hover effect */
+.elem:hover {
+  transform: translateY(-8px);
+  box-shadow: rgba(103, 103, 103, 0.3) 0px 10px 20px;
+  border: 1px solid var(--text-secondary);
+}
+
+.elem:active {
+  transform: translateY(0);
+}
+
+/* Card title */
+.elem h2 {
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Full screen element (optional) */
+.fullElem {
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-primary);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding: 30px;
+}
+
+.back {
+  position: absolute;
+  right: 2%;
+  background-color: var(--btn-primary);
+  border-radius: 13px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.back:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(103, 103, 103, 0.3) 0px 4px 4px;
+  background-color: var(--btn-secondary);
+}
+
+.todo-list-fullpage h2 {
+  font-size: 30px;
+}
+
+.todo-list-fullpage .todo-container {
+  height: 90%;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.todo-list-fullpage .todo-container .addTask {
+  height: 100%;
+  width: 33%;
+  border-radius: 10px;
+  background-color: var(--bg-secondary);
+}
+
+.todo-list-fullpage .todo-container .addTask form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.todo-container .addTask form #taskInput {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 15px;
+  background-color: var(--bg-field-primary);
+  border-radius: 3px;
+  outline: none;
+  border: none;
+}
+
+input:hover {
+  border-color: red;
+}
+
+textarea::placeholder {
+  color: var(--text-primary);
+}
+
+.todo-container .addTask form textarea {
+  height: 300px;
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: var(--bg-field-primary);
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+.todo-container .addTask form button {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 15px;
+  background-color: var(--btn-primary);
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.todo-container .addTask form button:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(103, 103, 103, 0.3) 0px 4px 4px;
+  background-color: var(--btn-secondary);
+}
+
+input::placeholder {
+  color: var(--text-primary);
+}
+
+.todo-list-fullpage .todo-container .allTask {
+  height: 100%;
+  width: 65%;
+  border-radius: 10px;
+  background-color: var(--bg-secondary);
+}
+
+.todo-list-fullpage .todo-container .allTask {
+  height: 100%;
+  width: 65%;
+  background-color: var(--bg-secondary);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.task {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-radius: 3px;
+  background-color: var(--bg-field-primary);
+}
+
+.task h5 span {
+  background-color: var(--text-primary-span);
+  color: var(--bg-light-primaryn);
+  font-size: 7px;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.task h5 span.true {
+  opacity: 1;
+}
+
+.task h5 span.false {
+  opacity: 0;
+}
+
+.task button {
+  background-color: var(--btn-primary);
+  font-weight: 600;
+  padding: 10px 40px;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.todo-list-fullpage .todo-container .allTask::-webkit-scrollbar {
+  width: 10px;
+}
+
+.todo-list-fullpage .todo-container .allTask::-webkit-scrollbar-thumb {
+  background-color: var(--bg-primary-scroll);
+  border-radius: 10px;
+}
+
+.todo-list-fullpage .todo-container .allTask::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--bg-secondary-scroll);
+}
+
+.todo-list-fullpage .todo-container .allTask button:hover {
+  transform: translateY(-2px);
+  box-shadow: rgba(184, 184, 184, 0.199) 0px 4px 10px;
+  background-color: var(--btn-secondary);
+}
+
+.mark-imp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  font-size: 13px;
+  padding: 2px;
+}
+
+.mark-imp input {
+  padding-right: 10px;
+}
+
+.daily-planner-fullpage .daily-planner-container {
+  height: 80%;
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 40px;
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  transition: all 0.5s ease;
+}
+
+.daily-planner-fullpage .daily-planner-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.daily-planner-fullpage .daily-planner-container::-webkit-scrollbar-thumb {
+  background-color: var(--bg-primary-scroll);
+  border-radius: 20px;
+}
+.daily-planner-fullpage .daily-planner-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--bg-secondary-scroll);
+}
+
+.daily-planner-container .daily-planner {
+  padding: 20px;
+  width: 49%;
+  background-color: var(--bg-secondary-primary);
+  border-radius: 5px;
+}
+
+.daily-planner-container .daily-planner h4 {
+  color: #191919;
+}
+
+.daily-planner-container .daily-planner input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  background-color: var(--bg-field-secondary);
+  box-shadow: rgba(194, 193, 193, 0.3) 0px 10px 20px;
+  color: #191919;
+  font-weight: 600;
+}
+.daily-planner-container .daily-planner:hover {
+  box-shadow: rgba(215, 215, 215, 0.396) 0px 5px 9px;
+}
+
+.daily-planner-container .daily-planner input:hover {
+  /* border: 1px solid var(--bg-field-primary); */
+  transform: scale(1.01);
+}
+
+.daily-planner-container .daily-planner input:focus {
+  border: 2px solid var(--bg-field-primary);
+  outline: none; /* Removes the default browser outline */
+  /* background-color: #f0f8ff */
+}
+
+.motivation-fullpage .motivation-container {
+  margin-top: 20px;
+  min-height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+/* Main quote card */
+.motivation-fullpage .motivation-container .motivation-quote {
+  width: 100%;
+  max-width: 800px;
+  min-height: 300px;
+  padding: 30px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.motivation-quote h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: var(--text-dark-primary);
+}
+
+/* Quote text */
+.motivation-quote h3 {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-dark-primary);
+}
+
+.motivation-quote p {
+  margin-top: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.6;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-dark-primary);
+}
+
+/* Footer (author / decoration) */
+.motivation-quote-footer {
+  margin-top: 30px;
+  height: 4px;
+  width: 60px;
+  align-self: center;
+  border-radius: 10px;
+}
+
+/* Background shadow card */
+.motivation-fullpage .motivation-container .test {
+  width: 100%;
+  max-width: 800px;
+  min-height: 350px;
+  box-shadow: rgba(210, 209, 209, 0.69) 0px 10px 100px;
+  border-radius: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.05);
+  z-index: 1;
+  background-color: rgba(214, 171, 224, 0.81);
+}
+
+.pomodoro-fullpage .pomodoro-container {
+  margin-top: 30px;
+  background-color: var(--bg-secondary-primary);
+  border-radius: 20px;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.pomodoro-fullpage .pomodoro-container .watch-container {
+  height: 400px;
+  width: 800px;
+  /* background-color: var(--bg-secondary-primary); */
+  background-color: var(--bg-field-secondary);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 10px 10px 30px rgba(51, 50, 50, 0.395);
+}
+.watch-container {
+  padding: 10px;
+}
+
+.watch-container h2 {
+  font-size: 130px;
+  color: var(--text-primary);
+}
+.watch-container .pomo-btns {
+  display: flex;
+}
+
+.watch-container .pomo-btns button {
+  padding: 10px 30px;
+  color: var(--text-primary);
+  background-color: var(--btn-ter-primary);
+  font-weight: 600;
+  outline: none;
+  border: none;
+  margin: 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.watch-container .pomo-btns button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(217, 214, 214, 0.741);
+  background-color: var(--btn-ter-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section.allElems {
+    /* padding: 20px; */
+    /* padding-top: 50px; */
+    gap: 20px;
+  }
+
+  .elem {
+    height: 300px;
+  }
+
+  .todo-list-fullpage h2 {
+    font-size: 17px;
+  }
+
+  .back {
+    font-size: 10px;
+  }
+
+  .todo-list-fullpage .todo-container {
+    height: 90%;
+    flex-direction: column;
+  }
+
+  .todo-list-fullpage .todo-container .addTask {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--bg-secondary);
+  }
+
+  .todo-list-fullpage .todo-container .allTask {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--bg-secondary);
+  }
+
+  .todo-list-fullpage h2 {
+    margin-bottom: 30px;
+  }
+
+  .todo-container .addTask form textarea {
+    height: 70px;
+  }
+
+  .task {
+    flex-direction: column;
+  }
+
+  .task button {
+    /* width: 100%; */
+    flex-direction: column;
+    padding: 7px 50px;
+    margin-top: 10px;
+  }
+
+  .daily-planner-fullpage h1 {
+    font-size: 16px;
+  }
+
+  .daily-planner-container .daily-planner input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .motivation-fullpage h1 {
+    font-size: 18px;
+  }
+
+  .pomodoro-fullpage h1 {
+    font-size: 20px;
+  }
+
+  .watch-container h2 {
+    font-size: 90px;
+  }
+
+  .imageContainer .left .date {
+    font-size: 20px;
+    color: var(--text-dark-primary);
+  }
+
+  .imageContainer .left .dayTime {
+    font-size: 40px;
+    color: var(--text-dark-primary);
+    font-weight: 700;
+  }
+
+  .imageContainer .left .location {
+    font-size: 15px;
+    /* color: #191919; */
+    color: var(--text-dark-primary);
+  }
+
+  .imageContainer .right .temperature {
+    font-size: 30px;
+    color: var(--text-dark-primary);
+  }
+
+  .imageContainer .right .typDay {
+    font-size: 20px;
+    color: var(--text-dark-primary);
+  }
+
+  .imageContainer .right .humidity {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-dark-primary);
+  }
+
+  .imageContainer .right .wind {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-dark-primary);
+  }
+}
+
+@media (max-width: 480px) {
+  #main {
+    padding: 0px;
+  }
+
+  .hederSection {
+    border-radius: 0;
+  }
+  .motivation-quote h3 {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .motivation-fullpage .motivation-container {
+    padding: 10px;
+  }
+
+  .motivation-container .motivation-quote h2 {
+    font-size: 15px;
+  }
+
+  .watch-container .pomo-btns {
+    flex-direction: column;
+  }
+
+  .watch-container h2 {
+    font-size: 54px;
+    margin-bottom: 20px;
+  }
+
+  .watch-container .pomo-btns button {
+    padding: 10px 50px;
+    font-weight: 500;
+    margin: 6px;
+    font-size: 10px;
+  }
+
+  section.allElems {
+    padding: 20px;
+    /* padding-top: 50px;
+    gap: 20px; */
+  }
+
+  .imageContainer {
+    flex-direction: column;
+    align-items: self-start;
+  }
+
+  .imageContainer .left .date {
+    font-size: 17px;
+  }
+
+  .imageContainer .left .dayTime {
+    font-size: 27px;
+    font-weight: 700;
+  }
+
+  .imageContainer .left .location {
+    font-size: 17px;
+  }
+
+  .imageContainer .right .temperature {
+    font-size: 35px;
+  }
+
+  .imageContainer .right .typDay {
+    font-size: 17px;
+  }
+
+  .imageContainer .right .humidity {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .imageContainer .right .wind {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .daily-planner-container .daily-planner {
+    width: 100%;
+  }
+
+  .imageContainer .left .date {
+    font-size: 25px;
+  }
+
+  .imageContainer .right .temperature {
+    font-size: 40px;
+  }
+
+  .imageContainer .right .typDay {
+    font-size: 25px;
+  }
+
+  .imageContainer .right .humidity {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .imageContainer .right .wind {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+}

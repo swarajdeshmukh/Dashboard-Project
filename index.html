@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project 6</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="main">
+      <!-- Navsection -->
+      <!-- <nav>
+        dsjfdkdf
+      </nav> -->
+
+      <div class="hederSection">
+        <div class="imageContainer">
+          <div class="left">
+            <h2 class="date">13 Dec, 2025</h2>
+            <h2 class="dayTime">Tusday, 16:55 PM</h2>
+            <h2 class="location">Pune, Maharashtra</h2>
+          </div>
+
+          <div class="right">
+            <h2 class="temperature"></h2>
+            <h2 class="typDay"></h2>
+            <h2 class="humidity"></h2>
+            <h2 class="wind"></h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroSection">
+        <!-- Section 0 Home page -->
+        <section class="allElems">
+          <div class="todo elem" id="0">
+            <img
+              src="https://i.pinimg.com/736x/f0/5b/ed/f05bed1095436e4806175bd99429ffd6.jpg"
+              alt=""
+            />
+            <h2>Todo List</h2>
+          </div>
+
+          <div class="daily-planner elem" id="1">
+            <img
+              src="https://i.pinimg.com/1200x/d1/53/06/d15306321408504e84d1664c354b0052.jpg"
+              alt=""
+            />
+            <h2>Daily Planner</h2>
+          </div>
+
+          <div class="motivation elem" id="2">
+            <img
+              src="https://i.pinimg.com/736x/fc/f3/6a/fcf36a650f4cb98b96ad0e21376965c6.jpg"
+              alt=""
+            />
+            <h2>Motivation</h2>
+          </div>
+
+          <div class="pomodoro elem" id="3">
+            <img
+              src="https://i.pinimg.com/736x/c9/b2/53/c9b2536b4f6e442c0e75d956bef4af20.jpg"
+              alt=""
+            />
+            <h2>Pomodoro Timer</h2>
+          </div>
+
+          <div class="Daily elem" id="4">
+            <img
+              src="https://i.pinimg.com/736x/ac/c9/39/acc9399eb6dae49c05be824cdf46930a.jpg"
+              alt=""
+            />
+            <h2>Daily Goals</h2>
+          </div>
+        </section>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="fullElem todo-list-fullpage">
+        <!-- Back btn -->
+        <button class="back" id="0">Back <i class="ri-close-fill"></i></button>
+
+        <!-- Heading of page -->
+        <h2>Your Personalised Task List</h2>
+
+        <!-- Section of page -->
+        <div class="todo-container">
+          <!-- Left section All Task -->
+          <div class="addTask">
+            <form>
+              <h3>Add Task</h3>
+              <input
+                id="taskInput"
+                type="text"
+                placeholder="Enter Task"
+                required
+              />
+              <textarea placeholder="Enter Details" required></textarea>
+              <div class="mark-imp">
+                <input type="checkbox" id="check" />
+                <label for="check">Mark as Inportant</label>
+              </div>
+              <button>Add Task</button>
+            </form>
+          </div>
+
+          <!-- Right section All Task -->
+          <div class="allTask">
+            <!-- <div class="task">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aut incidunt officiis corporis asperiores possimus numquam enim velit blanditiis vitae!</h5>
+                        <button>Delete</button>
+                    </div>
+
+                    <div class="task">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aut incidunt officiis corporis asperiores possimus numquam enim velit blanditiis vitae!</h5>
+                        <button>Delete</button>
+                    </div>
+
+
+                    <div class="task">
+                        <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi aut incidunt officiis corporis asperiores possimus numquam enim velit blanditiis vitae!</h5>
+                        <button>Delete</button>
+                    </div> -->
+          </div>
+
+          <!-- End -->
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="fullElem daily-planner-fullpage">
+        <button class="back" id="1">Back <i class="ri-close-fill"></i></button>
+        <h1>Daily Planner - Plan Your Day</h1>
+
+        <div class="daily-planner-container">
+          <!-- <div class="daily-planner">
+                    <h4>6:00 - 7:00</h4>
+                    <input type="text" placeholder="Add Task...">
+                </div>
+
+                <div class="daily-planner">
+                    <h4>7:00 - 8:00</h4>
+                    <input type="text" placeholder="Add Task...">
+                </div> -->
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="fullElem motivation-fullpage">
+        <button class="back" id="2">Back <i class="ri-close-fill"></i></button>
+        <h1>Motivation</h1>
+
+        <div class="motivation-container">
+          <div class="motivation-quote">
+            <h2>- Quote's For The Day -</h2>
+            <h3></h3>
+            <p></p>
+          </div>
+          <div class="test"></div>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="fullElem pomodoro-fullpage">
+        <button class="back" id="3">Back <i class="ri-close-fill"></i></button>
+        <h1>Pomodoro Timer</h1>
+
+        <div class="pomodoro-container">
+          <div class="watch-container">
+            <h2>25:00</h2>
+            <div class="pomo-btns">
+              <button class="start-btn">Start</button>
+              <button class="pause-btn">Pause</button>
+              <button class="reset-btn">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="fullElem daily-goals-fullpage">
+        <button class="back" id="4">Back <i class="ri-close-fill"></i></button>
+        <h1>Daily Goals</h1>
+      </section>
+
+      <!-- End of main -->
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

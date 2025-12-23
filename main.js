@@ -229,8 +229,6 @@ function pomodoroTimer() {
 const APIKEY = "2529b7110fff4a48ad0122024252312";
 const CITY = "pune";
 
-// const temperature = document.querySelector('.temperature')
-
 const temperature = document.querySelector(".temperature");
 const typDay = document.querySelector(".typDay");
 const humidity = document.querySelector(".humidity");
@@ -300,6 +298,7 @@ function DayDate() {
   // Time logic
   let hours = dateData.getHours();
   let minutes = dateData.getMinutes();
+  let seconds = dateData.getSeconds();
   let ampm = hours >= 12 ? "PM" : "AM";
 
   hours = hours % 12 || 12; // Convert 0 → 12
@@ -308,9 +307,14 @@ function DayDate() {
   // Day + Time
   dayTime.textContent = `${
     weekDays[dateData.getDay()]
-  }, ${hours}:${minutes} ${ampm}`;
+  }, ${String(hours).padStart('2','0')}:${String(minutes).padStart('2','0')}:${String(seconds).padStart('2','0')} ${ampm}`;
 }
 
+
+setInterval(()=>{
+  DayDate()
+  console.log('timer')
+},1000)
 
 headerData();
 openFeatures();

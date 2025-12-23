@@ -326,41 +326,84 @@ input::placeholder {
 
 .task {
   width: 100%;
+  border: 1px solid var(--text-dark-primary);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: var(--bg-secondary-primary);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between; /* heading+span on left, button on right */
+  align-items: center;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  gap: 10px;
+}
+
+.title-span {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 30px;
+  gap: 20px; /* space between heading and span */
+}
+
+.task h5 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text-dark-primary);
+}
+
+.task p {
+  margin: 0;
+  font-size: 1.2rem;
+  background-color: var(--bg-field-secondary);
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.task p:hover {
+  box-shadow: rgba(135, 133, 133, 0.632) 0px 4px 20px;
+}
+span.true {
+  background-color: red;
   border-radius: 3px;
-  background-color: var(--bg-field-primary);
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 0px 3px;
+  font-weight: bold;
 }
 
-.task h5 span {
-  background-color: var(--text-primary-span);
-  color: var(--bg-light-primaryn);
-  font-size: 7px;
-  padding: 4px 10px;
-  border-radius: 50px;
-}
-
-.task h5 span.true {
-  opacity: 1;
-}
-
-.task h5 span.false {
-  opacity: 0;
+span.false {
+ display: none;
 }
 
 .task button {
-  background-color: var(--btn-primary);
-  font-weight: 600;
-  padding: 10px 40px;
-  border: none;
-  outline: none;
-  border-radius: 3px;
+  padding: 8px 20px;
   cursor: pointer;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 500;
+  background-color: var(--btn-primary);
   transition: all 0.3s ease;
-  margin-left: 20px;
 }
+
+.task button:hover{
+  transform: translateY(-2px);
+  box-shadow: rgba(9, 9, 9, 0.4) 0px 10px 5px;
+  background-color: var(--btn-secondary);
+}
+  
+/* p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+} */
+
+
 
 .todo-list-fullpage .todo-container .allTask::-webkit-scrollbar {
   width: 10px;
@@ -798,6 +841,14 @@ input::placeholder {
     font-size: 12px;
     letter-spacing: 2px;
   }
+  .task h5 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.task span {
+  font-size: 8px;
+}
 }
 
 @media (max-width: 1024px) {

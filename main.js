@@ -7,11 +7,13 @@ function openFeatures() {
   const activeSection = localStorage.getItem("activeSection");
   if (activeSection !== null) {
     fullElemPage[activeSection].style.display = "block";
+    document.body.style.overflowY = 'hidden'
   }
 
   allElems.forEach(function (elem) {
     elem.addEventListener("click", function () {
       fullElemPage[elem.id].style.display = "block";
+      document.body.style.overflowY = 'hidden'
       localStorage.setItem("activeSection", elem.id); // ✅ save section
     });
   });
@@ -19,6 +21,7 @@ function openFeatures() {
   fullElemPageBackBtn.forEach(function (back) {
     back.addEventListener("click", function () {
       fullElemPage[back.id].style.display = "none";
+      document.body.style.overflowY = 'scroll'
       localStorage.removeItem("activeSection"); // ✅ go back to home
     });
   });
@@ -85,7 +88,6 @@ function toDo() {
 // Daily Planner
 function dailyPlanner() {
   let dayPlanData = JSON.parse(localStorage.getItem("dayPlanData")) || {};
-
   let dailyPlannerContainer = document.querySelector(
     ".daily-planner-container"
   );
@@ -100,7 +102,7 @@ function dailyPlanner() {
     wholeDaySum += `
         <div class="daily-planner">
             <h4>${elem}</h4>
-            <input id=${idx} type="text" placeholder="Add Task..." value=${values}>
+            <input id=${idx} type="text" placeholder="Add Task..." value="${values}">
         </div>
     `;
   });
@@ -313,7 +315,7 @@ function DayDate() {
 
 setInterval(()=>{
   DayDate()
-  console.log('timer')
+  // console.log('timer')
 },1000)
 
 headerData();
